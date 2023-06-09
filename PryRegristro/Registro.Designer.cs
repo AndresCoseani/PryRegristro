@@ -196,17 +196,18 @@
             // cmdAceptar
             // 
             this.cmdAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAceptar.Location = new System.Drawing.Point(302, 586);
+            this.cmdAceptar.Location = new System.Drawing.Point(89, 586);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(104, 30);
             this.cmdAceptar.TabIndex = 10;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
+            this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // cmdCancelar
             // 
             this.cmdCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCancelar.Location = new System.Drawing.Point(461, 586);
+            this.cmdCancelar.Location = new System.Drawing.Point(268, 586);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(104, 30);
             this.cmdCancelar.TabIndex = 11;
@@ -218,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 652);
+            this.ClientSize = new System.Drawing.Size(465, 652);
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.mrcTareas);
@@ -230,6 +231,7 @@
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.lblFecha);
             this.Name = "frmRegistro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro";
             this.mrcReunion.ResumeLayout(false);
             this.mrcReunion.PerformLayout();
