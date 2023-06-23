@@ -44,6 +44,7 @@
             this.chkRepositorio = new System.Windows.Forms.CheckBox();
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.cmdCancelar = new System.Windows.Forms.Button();
+            this.cmdMostrar = new System.Windows.Forms.Button();
             this.mrcReunion.SuspendLayout();
             this.mrcTareas.SuspendLayout();
             this.SuspendLayout();
@@ -97,12 +98,14 @@
             // 
             // cboTipoActividad
             // 
+            this.cboTipoActividad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTipoActividad.FormattingEnabled = true;
             this.cboTipoActividad.Location = new System.Drawing.Point(155, 90);
             this.cboTipoActividad.Name = "cboTipoActividad";
             this.cboTipoActividad.Size = new System.Drawing.Size(186, 24);
             this.cboTipoActividad.TabIndex = 5;
+            this.cboTipoActividad.SelectedIndexChanged += new System.EventHandler(this.cboTipoActividad_SelectedIndexChanged);
             // 
             // optNo
             // 
@@ -196,18 +199,18 @@
             // cmdAceptar
             // 
             this.cmdAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAceptar.Location = new System.Drawing.Point(89, 586);
+            this.cmdAceptar.Location = new System.Drawing.Point(45, 586);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(104, 30);
             this.cmdAceptar.TabIndex = 10;
-            this.cmdAceptar.Text = "Aceptar";
+            this.cmdAceptar.Text = "Registar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // cmdCancelar
             // 
             this.cmdCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCancelar.Location = new System.Drawing.Point(268, 586);
+            this.cmdCancelar.Location = new System.Drawing.Point(337, 586);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(104, 30);
             this.cmdCancelar.TabIndex = 11;
@@ -215,11 +218,23 @@
             this.cmdCancelar.UseVisualStyleBackColor = true;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
+            // cmdMostrar
+            // 
+            this.cmdMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdMostrar.Location = new System.Drawing.Point(186, 586);
+            this.cmdMostrar.Name = "cmdMostrar";
+            this.cmdMostrar.Size = new System.Drawing.Size(104, 30);
+            this.cmdMostrar.TabIndex = 12;
+            this.cmdMostrar.Text = "Mostrar";
+            this.cmdMostrar.UseVisualStyleBackColor = true;
+            this.cmdMostrar.Click += new System.EventHandler(this.cmdMostrar_Click);
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 652);
+            this.Controls.Add(this.cmdMostrar);
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.mrcTareas);
@@ -233,6 +248,7 @@
             this.Name = "frmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro";
+            this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.mrcReunion.ResumeLayout(false);
             this.mrcReunion.PerformLayout();
             this.mrcTareas.ResumeLayout(false);
@@ -260,6 +276,7 @@
         private System.Windows.Forms.CheckBox chkRepositorio;
         private System.Windows.Forms.Button cmdAceptar;
         private System.Windows.Forms.Button cmdCancelar;
+        private System.Windows.Forms.Button cmdMostrar;
     }
 }
 

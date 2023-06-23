@@ -13,6 +13,12 @@ namespace PryRegristro
 {
     public partial class frmRegistro : Form
     {
+        public string[,] MatrizActividad = new string[5,5];
+
+
+        string varReunion;
+        string varTareas;
+        
         public frmRegistro()
         {
             InitializeComponent();
@@ -47,9 +53,18 @@ namespace PryRegristro
             {
                 if (cboTipoActividad.SelectedIndex != -1) 
                 {
+                    if (optSi.Checked == true)
+                    {
+                        varReunion = "Si";
+                    }
+                    else
+                    {
+                        varReunion = "No";
+                    }
+                    
                     if (txtDetalleActividad.Text != "") 
                     {
-                        MessageBox.Show("Vamos a grabar");
+                        MessageBox.Show("¿Grabar?");
                     }
                     else
                     {
@@ -61,6 +76,7 @@ namespace PryRegristro
                     MessageBox.Show("Seleccione una actividad");
                     cboTipoActividad.Focus();
                 }
+               
             }
             else
             {
@@ -69,6 +85,29 @@ namespace PryRegristro
                 dtpFecha.Value = DateTime.Today;
                 dtpFecha.Focus();
             }
+            
+        }
+
+
+        private void cboTipoActividad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmRegistro_Load(object sender, EventArgs e)
+        {
+            cboTipoActividad.Items.Add("Actividad 1");
+            cboTipoActividad.Items.Add("Actividad 2");
+            cboTipoActividad.Items.Add("Actividad 3");
+            
+
+        }
+
+        private void cmdMostrar_Click(object sender, EventArgs e)
+        {
+            frmMostrar frmMostrar = new frmMostrar();
+            frmMostrar.ShowDialog();
+            this.Hide();
         }
     }
 }
