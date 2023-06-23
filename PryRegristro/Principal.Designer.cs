@@ -62,6 +62,7 @@
             this.Controls.Add(this.lblBienvenido);
             this.Name = "frmPrincipal";
             this.Text = "Principal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,12 +13,13 @@ namespace PryRegristro
 {
     public partial class frmRegistro : Form
     {
-        public string[,] MatrizActividad = new string[5,5];
-
-
+        string[] VectorActividades = new string[3];
+        string[] VectorDatos = new string[5];
         string varReunion;
         string varTareas;
-        
+        frmMostrar ventanaMostrar = new frmMostrar();
+        int IndiceFilaRegistro;
+
         public frmRegistro()
         {
             InitializeComponent();
@@ -65,10 +66,15 @@ namespace PryRegristro
                     if (txtDetalleActividad.Text != "") 
                     {
                         MessageBox.Show("¿Grabar?");
+
+                        ventanaMostrar.MatrizActividad[IndiceFilaRegistro, 0] = dtpFecha.Value.ToString();
+                        ventanaMostrar.MatrizActividad[IndiceFilaRegistro, 1] = cboTipoActividad.Text;
+                        ventanaMostrar.MatrizActividad[IndiceFilaRegistro, 2] = txtDetalleActividad.Text;
                     }
                     else
                     {
                         MessageBox.Show("Falta completar Detalle Actividad");
+                        txtDetalleActividad.Focus();
                     }
                 }
                 else
@@ -105,9 +111,10 @@ namespace PryRegristro
 
         private void cmdMostrar_Click(object sender, EventArgs e)
         {
+            
             frmMostrar frmMostrar = new frmMostrar();
             frmMostrar.ShowDialog();
-            this.Hide();
+           
         }
     }
 }

@@ -47,6 +47,7 @@
             this.cmdVolver.TabIndex = 3;
             this.cmdVolver.Text = "Volver";
             this.cmdVolver.UseVisualStyleBackColor = true;
+            this.cmdVolver.Click += new System.EventHandler(this.cmdVolver_Click);
             // 
             // dtgvRegistro
             // 

@@ -19,9 +19,15 @@ namespace PryRegristro
 
         private void cmdIniciar_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmRegistro frmRegistro = new frmRegistro();    
             frmRegistro.ShowDialog(); 
-            this.Hide();    
+               
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
