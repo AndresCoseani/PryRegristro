@@ -58,9 +58,9 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dtgvRegistro.Location = new System.Drawing.Point(59, 69);
+            this.dtgvRegistro.Location = new System.Drawing.Point(58, 152);
             this.dtgvRegistro.Name = "dtgvRegistro";
-            this.dtgvRegistro.Size = new System.Drawing.Size(542, 324);
+            this.dtgvRegistro.Size = new System.Drawing.Size(542, 175);
             this.dtgvRegistro.TabIndex = 4;
             this.dtgvRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 

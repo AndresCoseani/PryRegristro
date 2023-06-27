@@ -13,12 +13,11 @@ namespace PryRegristro
 {
     public partial class frmRegistro : Form
     {
-        string[] VectorActividades = new string[3];
-        string[] VectorDatos = new string[5];
-        string varReunion="";
-        string varTareas="";
+       
+        
+        
         frmMostrar ventanaMostrar = new frmMostrar();
-        int IndiceFilaRegistro;
+        int IndiceFilaR;
 
         public frmRegistro()
         {
@@ -32,14 +31,7 @@ namespace PryRegristro
 
         private void mrcTareas_Enter(object sender, EventArgs e)
         {
-            if (optSi.Checked == true) 
-            { 
-              mrcTareas. Enabled = true ;
-            }
-            else
-            {
-                mrcTareas.Enabled = false;
-            }
+
 
         }
 
@@ -50,44 +42,55 @@ namespace PryRegristro
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
+            string varReunion = "";
+            string varTareas = ""; 
+
             if (dtpFecha.Value>= DateTime.Today)
             {
                 if (cboTipoActividad.SelectedIndex != -1) 
                 {
-                    if (optSi.Checked == true)
-                    {
-                        varReunion = "Si";
-                    }
-                    else
-                    {
-                        varReunion = "No";
-                    }
-                    if (chkRepositorio.Checked == true)
-                    {
-                        varTareas = "Repositorio";
-
-                    }
-                    if (chkNotasReunion.Checked == true)
-                    {
-                        varTareas = "Notas Reunion";
-                    }
-                    if (chkInvestigacion.Checked == true)
-                    {
-                        varTareas = "Investigacion";
-                    }
-                    if (chkDebate.Checked == true)
-                    {
-                        varTareas = "Debate";
-                    }
                    
-                    
                     if (txtDetalleActividad.Text != "") 
                     {
                         MessageBox.Show("¿Grabar?");
 
-                        ventanaMostrar.MatrizActividad[IndiceFilaRegistro, 0] = dtpFecha.Value.ToString();
-                        ventanaMostrar.MatrizActividad[IndiceFilaRegistro, 1] = cboTipoActividad.Text;
-                        ventanaMostrar.MatrizActividad[IndiceFilaRegistro, 2] = txtDetalleActividad.Text;
+                        if (optSi.Checked == true)
+                        {
+                            varReunion = "Si";
+                        }
+                        else
+                        {
+                            varReunion = "No";
+                        }
+                        if (chkRepositorio.Checked == true)
+                        {
+                            varTareas = "Repositorio";
+
+                        }
+                        if (chkNotasReunion.Checked == true)
+                        {
+                            varTareas = "Notas Reunion";
+                        }
+                        if (chkInvestigacion.Checked == true)
+                        {
+                            varTareas = "Investigacion";
+                        }
+                        if (chkDebate.Checked == true)
+                        {
+                            varTareas = "Debate";
+                        }
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 0] = dtpFecha.Value.ToString();
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 1] = cboTipoActividad.Text;
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 2] = txtDetalleActividad.Text;
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 3] = varTareas;
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 4] = varReunion;
+
+                         IndiceFilaR++;
+
+                        if (IndiceFilaR == ventanaMostrar.MatrizActividad.GetLength(0)) ;    
+                        {
+                            cmdAceptar.Enabled = false;
+                        }
                     }
                     else
                     {

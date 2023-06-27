@@ -12,7 +12,7 @@ namespace PryRegristro
 {
     public partial class frmMostrar : Form
     {
-        public string[,] MatrizActividad = new string[3, 5];
+        public string[,] MatrizActividad = new string[2, 5];
         int Indicefilas, Indicecolumnas;
 
         public frmMostrar()
