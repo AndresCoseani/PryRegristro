@@ -95,6 +95,7 @@
             this.txtDetalleActividad.Name = "txtDetalleActividad";
             this.txtDetalleActividad.Size = new System.Drawing.Size(175, 23);
             this.txtDetalleActividad.TabIndex = 4;
+            this.txtDetalleActividad.TextChanged += new System.EventHandler(this.txtDetalleActividad_TextChanged);
             // 
             // cboTipoActividad
             // 

@@ -15,8 +15,8 @@ namespace PryRegristro
     {
         string[] VectorActividades = new string[3];
         string[] VectorDatos = new string[5];
-        string varReunion;
-        string varTareas;
+        string varReunion="";
+        string varTareas="";
         frmMostrar ventanaMostrar = new frmMostrar();
         int IndiceFilaRegistro;
 
@@ -62,6 +62,24 @@ namespace PryRegristro
                     {
                         varReunion = "No";
                     }
+                    if (chkRepositorio.Checked == true)
+                    {
+                        varTareas = "Repositorio";
+
+                    }
+                    if (chkNotasReunion.Checked == true)
+                    {
+                        varTareas = "Notas Reunion";
+                    }
+                    if (chkInvestigacion.Checked == true)
+                    {
+                        varTareas = "Investigacion";
+                    }
+                    if (chkDebate.Checked == true)
+                    {
+                        varTareas = "Debate";
+                    }
+                   
                     
                     if (txtDetalleActividad.Text != "") 
                     {
@@ -115,6 +133,11 @@ namespace PryRegristro
             frmMostrar frmMostrar = new frmMostrar();
             frmMostrar.ShowDialog();
            
+        }
+
+        private void txtDetalleActividad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
