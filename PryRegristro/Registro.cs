@@ -13,11 +13,10 @@ namespace PryRegristro
 {
     public partial class frmRegistro : Form
     {
-       
-        
-        
+     
         frmMostrar ventanaMostrar = new frmMostrar();
         int IndiceFilaR;
+        
 
         public frmRegistro()
         {
@@ -39,11 +38,44 @@ namespace PryRegristro
         {
 
         }
+        void limpiar()
+        {
+            dtpFecha.Value = DateTime.Today;
+            cboTipoActividad.Text = null;
+            txtDetalleActividad.Text = "";
+            if (chkRepositorio.Checked == true)
+            {
+                chkRepositorio.Checked = false;
+            }
+            if (chkNotasReunion.Checked == true)
+            {
+               chkNotasReunion.Checked = false;
+            }
+            if (chkInvestigacion.Checked == true)
+            {
+               chkInvestigacion.Checked = false;
+            }
+            if (chkDebate.Checked == true)
+            {
+               chkDebate.Checked = false;
+            }
+            if (optSi.Checked == true)
+            {
+               optSi.Checked = false;
+            }
+            else
+            {
+               optNo.Checked = false;
+            }
+
+        }
+
+
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
             string varReunion = "";
-            string varTareas = ""; 
+            string varTareas = "";
 
             if (dtpFecha.Value>= DateTime.Today)
             {
@@ -53,7 +85,22 @@ namespace PryRegristro
                     if (txtDetalleActividad.Text != "") 
                     {
                         MessageBox.Show("¿Grabar?");
-
+                        if (chkRepositorio.Checked == true)
+                        {
+                            varTareas = varTareas + " Repositorio, ";
+                        }
+                        if (chkNotasReunion.Checked == true)
+                        {
+                            varTareas = varTareas + " Notas Reunion, ";
+                        }
+                        if (chkInvestigacion.Checked == true)
+                        {
+                            varTareas = varTareas + " Investigacion, ";
+                        }
+                        if (chkDebate.Checked == true)
+                        {
+                            varTareas = varTareas + " Debate, ";
+                        }
                         if (optSi.Checked == true)
                         {
                             varReunion = "Si";
@@ -62,32 +109,16 @@ namespace PryRegristro
                         {
                             varReunion = "No";
                         }
-                        if (chkRepositorio.Checked == true)
-                        {
-                            varTareas = "Repositorio";
-
-                        }
-                        if (chkNotasReunion.Checked == true)
-                        {
-                            varTareas = "Notas Reunion";
-                        }
-                        if (chkInvestigacion.Checked == true)
-                        {
-                            varTareas = "Investigacion";
-                        }
-                        if (chkDebate.Checked == true)
-                        {
-                            varTareas = "Debate";
-                        }
+                        
                          ventanaMostrar.MatrizActividad[IndiceFilaR, 0] = dtpFecha.Value.ToString();
                          ventanaMostrar.MatrizActividad[IndiceFilaR, 1] = cboTipoActividad.Text;
                          ventanaMostrar.MatrizActividad[IndiceFilaR, 2] = txtDetalleActividad.Text;
-                         ventanaMostrar.MatrizActividad[IndiceFilaR, 3] = varTareas;
-                         ventanaMostrar.MatrizActividad[IndiceFilaR, 4] = varReunion;
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 3] = varReunion;
+                         ventanaMostrar.MatrizActividad[IndiceFilaR, 4] = varTareas;
 
                          IndiceFilaR++;
 
-                        if (IndiceFilaR == ventanaMostrar.MatrizActividad.GetLength(0)) ;    
+                        if (IndiceFilaR == ventanaMostrar.MatrizActividad.GetLength(0)) 
                         {
                             cmdAceptar.Enabled = false;
                         }
@@ -112,7 +143,7 @@ namespace PryRegristro
                 dtpFecha.Value = DateTime.Today;
                 dtpFecha.Focus();
             }
-            
+            limpiar();
         }
 
 
@@ -126,15 +157,16 @@ namespace PryRegristro
             cboTipoActividad.Items.Add("Actividad 1");
             cboTipoActividad.Items.Add("Actividad 2");
             cboTipoActividad.Items.Add("Actividad 3");
-            
+            cboTipoActividad.Items.Add("Actividad 4");
+            cboTipoActividad.Items.Add("Actividad 5");
+            cboTipoActividad.Items.Add("Actividad 6");
 
         }
 
         private void cmdMostrar_Click(object sender, EventArgs e)
         {
-            
-            frmMostrar frmMostrar = new frmMostrar();
-            frmMostrar.ShowDialog();
+
+            ventanaMostrar.ShowDialog();
            
         }
 
@@ -142,5 +174,6 @@ namespace PryRegristro
         {
 
         }
+        
     }
 }

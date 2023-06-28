@@ -12,7 +12,7 @@ namespace PryRegristro
 {
     public partial class frmMostrar : Form
     {
-        public string[,] MatrizActividad = new string[2, 5];
+        public string[,] MatrizActividad = new string[5, 5];
         int Indicefilas, Indicecolumnas;
 
         public frmMostrar()
@@ -36,15 +36,14 @@ namespace PryRegristro
             Indicefilas = 0;
 
             while (Indicefilas < MatrizActividad.GetLength(0)) 
-            {         
-              
-                    dtgvRegistro.Rows.Add(MatrizActividad[Indicefilas, 0],
-                     MatrizActividad[Indicecolumnas, 1],
-                     MatrizActividad[Indicecolumnas, 2],
-                     MatrizActividad[Indicecolumnas, 3],
-                     MatrizActividad[Indicecolumnas, 4]);
-                     
-                    Indicefilas++;  
+            {
+
+                dtgvRegistro.Rows.Add(MatrizActividad[Indicefilas, 0],
+                 MatrizActividad[Indicefilas, 1],
+                 MatrizActividad[Indicefilas, 2],
+                 MatrizActividad[Indicefilas, 3],
+                 MatrizActividad[Indicefilas, 4]);
+                Indicefilas++;  
                 
             } 
         }
